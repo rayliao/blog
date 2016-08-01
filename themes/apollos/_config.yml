@@ -1,0 +1,18 @@
+menu:
+    博客: /
+    微博: http://weibo.com/574954033
+    RAY: http://www.rayliao.com/
+    github: https://github.com/rayliao
+
+favicon: /favicon.jpg
+logo: /favicon.jpg
+
+# comment
+# e.g disqus: seansun
+disqus: 
+duoshuo: 
+
+# google-analytics:
+ga: UA-65933410-1
+# baidu-analytics:
+ba: //hm.baidu.com/hm.js?a36e15d9e2adec9a21fcdd9f686b1ed2
