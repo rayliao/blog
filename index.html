@@ -58,6 +58,31 @@
     <li class="post-list-item">
         <article class="post-block">
             <h2 class="post-title">
+                <a href="/blog/2019/09/25/使用svg代替icon-font/" class="post-title-link">使用svg代替icon font</a>
+            </h2>
+            <div class="post-info">
+    Sep 25, 2019
+    
+    
+    <a href="/blog/tags/Tech/" class="post-tag">#Tech</a>
+    
+    <a href="/blog/tags/前端优化/" class="post-tag">#前端优化</a>
+    
+    
+</div>
+            <div class="post-content">
+                <p>工作中遇到的问题，项目中有使用字体图标，因为需求设计把logo形态的图标也加到了字体图标库中，但因为这些新加的图标并不是正方形的，而是长方形的，当使用的时候，就需要设置成很大的字号，才能显示正常，然<code>iconfont</code>上的字体图标制作标准是方形的，也就导致了字体的高度也会和宽度一样，这显然不利于页面布局。</p>
+<p>用万能的搜索引擎寻找了下解决方案，发现可以用<code>svg</code>代替。</p>
+<p>开始考虑想一个个<code>svg</code>图标导进去使用，但页面那里引入<code>svg</code>和使用布局混在一起，太乱了：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+            </div>
+            <a href="/blog/2019/09/25/使用svg代替icon-font/" class="read-more">...more</a>
+        </article>
+    </li>
+    
+    <li class="post-list-item">
+        <article class="post-block">
+            <h2 class="post-title">
                 <a href="/blog/2019/09/05/少儿编程相关资料/" class="post-title-link">少儿编程相关资料</a>
             </h2>
             <div class="post-info">
@@ -267,28 +292,6 @@
 <p>这里有个坑，我就是因为这个坑卡住，导致我要向设计师妹子求助，可能你不会像我那么蠢，不过我还是写一下提醒一下，因为我习惯用「油漆桶工具」，所以画完椭圆形之后，因为前景色不是我要的颜色，所以我重新选择了前景色，然后用油漆桶工具把颜色填充进去，然后提示我是否要栅格化图层，我一直不懂栅格化图层是什么意思，所以义无反顾的选择了栅格化图层，然后就悲剧了，到后面第6步，一直不行。原来后面是需要这些椭圆为一个图层，而不是栅格化后的图片。</p>
             </div>
             <a href="/blog/2016/01/25/绘制一个圆环logo/" class="read-more">...more</a>
-        </article>
-    </li>
-    
-    <li class="post-list-item">
-        <article class="post-block">
-            <h2 class="post-title">
-                <a href="/blog/2016/01/16/创建新文章/" class="post-title-link">创建新文章</a>
-            </h2>
-            <div class="post-info">
-    Jan 16, 2016
-    
-    
-    <a href="/blog/tags/hexo/" class="post-tag">#hexo</a>
-    
-    <a href="/blog/tags/Tech/" class="post-tag">#Tech</a>
-    
-    
-</div>
-            <div class="post-content">
-                <p>试一下创建一篇新的文章，感觉还是挺方便的，用hexo来写文章，就是不知道文章用中文名字行不行，我以为会自动换成拼音的写法。然后现在那个主题有点问题，不知道为什么首页的文章列表不会显示文章内容的摘要，试下创建一篇新的文章，来测试下。</p>
-            </div>
-            <a href="/blog/2016/01/16/创建新文章/" class="read-more">...more</a>
         </article>
     </li>
     

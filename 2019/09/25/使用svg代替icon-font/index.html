@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+<meta name="X-UA-Compatible" , content="IE=edge">
+
+<title>使用svg代替icon font | RayLiao</title>
+
+<meta name="viewport" , content="width=device-width, initial-scale=1">
+<link rel="icon" href="/blog/favicon.jpeg">
+<link rel="stylesheet" href="/blog/css/apollo.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<header>
+			<a href="/blog/" class="logo-link">
+				RayLiao
+				<span data-letters="RayLiao"></span>
+				<span data-letters="RayLiao"></span>
+			</a>
+			<ul class="nav nav-list">
+    
+    
+    <li class="nav-list-item">
+        <a href="/blog/archives" class="nav-list-link " target="_self">
+            ARCHIVES
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://www.rayliao.com/" class="nav-list-link " target="_blank">
+            RAY
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="https://github.com/rayliao" class="nav-list-link " target="_blank">
+            GITHUB
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://weibo.com/574954033" class="nav-list-link " target="_blank">
+            WEIBO
+        </a>
+    </li>
+    
+</ul>
+		</header>
+		<main class="container">
+			<div class="post">
+    <article class="post-block">
+        <h1 class="post-title">
+            使用svg代替icon font
+        </h1>
+        <div class="post-info">
+    Sep 25, 2019
+    
+    
+    <a href="/blog/tags/Tech/" class="post-tag">#Tech</a>
+    
+    <a href="/blog/tags/前端优化/" class="post-tag">#前端优化</a>
+    
+    
+</div>
+        <div class="post-content">
+            <p>工作中遇到的问题，项目中有使用字体图标，因为需求设计把logo形态的图标也加到了字体图标库中，但因为这些新加的图标并不是正方形的，而是长方形的，当使用的时候，就需要设置成很大的字号，才能显示正常，然<code>iconfont</code>上的字体图标制作标准是方形的，也就导致了字体的高度也会和宽度一样，这显然不利于页面布局。</p>
+<p>用万能的搜索引擎寻找了下解决方案，发现可以用<code>svg</code>代替。</p>
+<p>开始考虑想一个个<code>svg</code>图标导进去使用，但页面那里引入<code>svg</code>和使用布局混在一起，太乱了：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>然后考虑<code>Symbols</code>的方式，把多个<code>svg</code>图标整合到一个<code>svg</code>中，生成类似下面这样的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">symbol</span> <span class="attr">id</span>=<span class="string">"icon1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">symbol</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">symbol</span> <span class="attr">id</span>=<span class="string">"icon2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">symbol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后就可以根据<code>id</code>单独使用其中某个<code>icon</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#icon1"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="如何转换svg为symbols格式？"><a href="#如何转换svg为symbols格式？" class="headerlink" title="如何转换svg为symbols格式？"></a>如何转换svg为symbols格式？</h4><p>方式有挺多种，其他没了解，下面说下我使用的方式，用<code>gulp-svg-symbols</code></p>
+<p>首先安装此插件:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-svg-symbols</span><br><span class="line"><span class="comment">// or use yarn</span></span><br><span class="line">yarn add -D gulp-svg-symbols</span><br></pre></td></tr></table></figure>
+<p>配置<code>gulpfile.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// svg转换</span></span><br><span class="line">...</span><br><span class="line">gulp.task(<span class="string">'svg'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> svgSymbols = <span class="built_in">require</span>(<span class="string">'gulp-svg-symbols'</span>)</span><br><span class="line">  <span class="keyword">const</span> path = <span class="string">'app/common/svg'</span></span><br><span class="line">  <span class="keyword">return</span> gulp</span><br><span class="line">    .src(<span class="string">`<span class="subst">$&#123;path&#125;</span>/source/*.svg`</span>)</span><br><span class="line">    .pipe(svgSymbols())</span><br><span class="line">    .pipe(rename(<span class="function"><span class="params">path</span> =&gt;</span> (path.basename = <span class="string">'partner'</span>)))</span><br><span class="line">    .pipe(gulp.dest(path))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>插件其他参数选项请参考<a href="https://github.com/Hiswe/gulp-svg-symbols" target="_blank" rel="noopener">文档</a></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://io-meter.com/2014/07/20/replace-icon-fonts-with-svg/" target="_blank" rel="noopener">Web 设计新趋势: 使用 SVG 代替 Web Icon Font</a></li>
+<li><a href="https://css-tricks.com/icon-fonts-vs-svg/" target="_blank" rel="noopener">Inline SVG vs Icon Fonts [CAGEMATCH]</a></li>
+</ul>
+
+        </div>
+    </article>
+</div>
+		</main>
+		<footer>
+			<div class="paginator">
+    
+    
+    
+    
+    <a href="/blog/2019/09/05/少儿编程相关资料/" class="next">next post</a>
+    
+    
+
+</div>
+			<div class="copyright">
+				
+				<p>© 2016 - 2019 <a href="http://www.rayliao.com/blog">Ray Liao</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/rayliao/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.
+				</p>
+			</div>
+		</footer>
+	</div>
+</body>
+
+</html>
