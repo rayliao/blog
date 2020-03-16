@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>RayLiao</title>
   
-  
+  <subtitle>不入流札记</subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://www.rayliao.com/blog/"/>
