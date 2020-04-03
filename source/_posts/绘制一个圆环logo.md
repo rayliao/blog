@@ -1,6 +1,10 @@
+---
 title: 绘制一个圆环logo
+tags:
+  - Design
+  - Photoshop
+abbrlink: 13903
 date: 2016-01-25 23:30:27
-tags: [Design, Photoshop]
 ---
 最近趁有一点时间，想把之前很久mark下来的[ps教程](http://www.uisdc.com/photoshop-fabulous-colorful-ring)学一下，去到第6步就卡住了，一点都不新手啊，还好我算懂点ps，完全不懂ps的，可要怎么学哟。
 
