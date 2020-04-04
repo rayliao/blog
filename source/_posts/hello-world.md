@@ -1,8 +1,8 @@
 ---
 title: Hello World
 tags:
-  - Tech
-  - hexo
+  - 技术
+  - Hexo
 abbrlink: 16107
 date: 2016-01-10 15:19:21
 ---

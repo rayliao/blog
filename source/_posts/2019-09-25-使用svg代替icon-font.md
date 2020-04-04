@@ -1,7 +1,7 @@
 ---
 title: 使用svg代替icon font
 tags:
-  - Tech
+  - 技术
   - 前端优化
 abbrlink: 664
 date: 2019-09-25 10:25:46

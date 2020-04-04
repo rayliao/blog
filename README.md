@@ -46,3 +46,10 @@ $ hexo deploy
 ```
 
 More info: [Deployment](http://hexo.io/docs/deployment.html)
+
+
+### 文章标签
+
+一篇文章两个标签即可，一个分类，一个符合文章内容的。
+
+分类如：技术，生活，教程，体验等
