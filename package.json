@@ -9,6 +9,7 @@
     "start": "hexo server",
     "deploy": "hexo deploy --generate"
   },
+  "license": "MIT",
   "dependencies": {
     "hexo": "^3.8.0",
     "hexo-abbrlink": "^2.0.5",
