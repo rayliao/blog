@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<meta name="X-UA-Compatible" , content="IE=edge">
+
+<title>图片的合并和压缩 | RayLiao</title>
+
+<meta name="description" content="浩瀚宇宙，只是尽力记录自己消耗的时光，rayliao,博客,前端,互联网,技术,生活,客家,广州,摄影,电影">
+
+<meta name="viewport" , content="width=device-width, initial-scale=1">
+<link rel="icon" href="/blog/favicon.jpeg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<link rel="stylesheet" href="/blog/css/apollo.css">
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a href="/blog/" class="logo-link">
+          RayLiao
+          <span data-letters="RayLiao"></span>
+          <span data-letters="RayLiao"></span>
+        </a>
+        <ul class="nav nav-list">
+    
+    
+    <li class="nav-list-item">
+        <a href="/blog/archives" class="nav-list-link " target="_self">
+            ARCHIVES
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://www.rayliao.com/" class="nav-list-link " target="_blank">
+            RAY
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="https://github.com/rayliao" class="nav-list-link " target="_blank">
+            GITHUB
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://weibo.com/574954033" class="nav-list-link " target="_blank">
+            WEIBO
+        </a>
+    </li>
+    
+</ul>
+      </header>
+      <main class="container">
+        <div class="post">
+    <article class="post-block">
+        <h1 class="post-title">
+            图片的合并和压缩
+        </h1>
+        <div class="post-info">
+    2016年2月26日
+    
+    
+    <a href="/blog/tags/前端优化/" class="post-tag">#前端优化</a>
+    
+    <a href="/blog/tags/技术/" class="post-tag">#技术</a>
+    
+    
+</div>
+        <div class="post-content">
+            <p>主要说一下图片合并和图片压缩的方法。</p>
+<h4 id="图片合并"><a href="#图片合并" class="headerlink" title="图片合并"></a>图片合并</h4><p><em>说明：这里的教程基于windows环境，以及认为你已经大概知道<code>gulp</code>的使用方法。</em></p>
+<p>为了减少图片的请求次数，可以把多张图片合并成一张图片，合并的图片叫雪碧图，也可以叫精灵图。以前是依靠ps一张张图片手工合并在一起，现在可以把需要合并的图片放在同一个文件夹，然后通过工具生成雪碧图以及样式文件。</p>
+<p>首先需要先下载安装<a href="http://www.graphicsmagick.org/" target="_blank" rel="noopener">GraphicsMagick</a>和<a href="http://www.imagemagick.org/script/index.php" target="_blank" rel="noopener">ImageMagick</a>。（这里说下为什么需要安装这两个软件，因为<code>sprity</code>默认使用的图片引擎是<code>lwip</code>，而在<code>windows</code>环境下，<code>lwip</code>是个坑，很难安装成功，所以把引擎换成<code>gm</code>，也就需要安装前面那两个软件，当然如果你是<code>mac</code>环境，可以选用<code>lwip</code>的引擎。）</p>
+<a id="more"></a>
+<p>安装成功之后，请重启一下电脑。接着安装<code>sprity</code>和<code>sprity-gm</code>。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span> sprity</span><br><span class="line">$ npm <span class="keyword">install</span> sprity-gm</span><br></pre></td></tr></table></figure></p>
+<p>接着在<code>gulpfile.js</code>里写一个合并的任务：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'sprites'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sprity = <span class="built_in">require</span>(<span class="string">'sprity'</span>);</span><br><span class="line">    sprity.src(&#123;</span><br><span class="line">        name: <span class="string">'icon'</span>,  <span class="comment">//需要合并的图片文件夹的名称</span></span><br><span class="line">        src: <span class="string">'path/*.png'</span>, <span class="comment">//图片的路径</span></span><br><span class="line">        style: <span class="string">'_icon.scss'</span>, <span class="comment">//定义生成的样式文件名</span></span><br><span class="line">        format: <span class="string">'png'</span>, <span class="comment">//指定需要合并的图片的格式</span></span><br><span class="line">        engine: <span class="string">'gm'</span>, <span class="comment">//设定图片引擎</span></span><br><span class="line">        <span class="string">'gm-use-imagemagick'</span>: <span class="literal">true</span>,</span><br><span class="line">        orientation: <span class="string">'binary-tree'</span>,  <span class="comment">//合并图片的排列方式</span></span><br><span class="line">        template: <span class="string">'./sprity-css.hbs'</span>, <span class="comment">//生成样式的模板</span></span><br><span class="line">        processor: <span class="string">'scss'</span> <span class="comment">//设定生成样式的格式</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .pipe(gulpif(<span class="string">'*.png'</span>, gulp.dest(<span class="string">'img/'</span>), gulp.dest(<span class="string">'css/'</span>))); <span class="comment">//生成的雪碧图的存放位置和样式的存放位置</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>具体的配置可以参考<code>sprity</code>的<a href="https://github.com/sprity/sprity" target="_blank" rel="noopener">README</a></p>
+<p>最后在命令行中输入命令：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>gulp sprites</span><br></pre></td></tr></table></figure></p>
+<p>done.</p>
+<h4 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h4><p>先说下<code>jpeg</code>格式的图片，尽可能的压缩图片大小，其实<code>jpeg</code>的格式是比较容易压缩的，在存储为web所用格式的时候，选择一下图片的质量或品质就可以了，选择“非常高”或者“高”就可以了，也就是品质60到80之间，尽量保证图片是小于<code>300kb</code>的。</p>
+<p>尺寸中或大的<code>jpeg</code>格式的图片请勾选<code>连续</code>模式，而不是优化模式。为什么呢，因为优化模式的图片加载方式是从上到下加载，而<code>连续</code>模式的加载方式是从低像素到高像素加载的。</p>
+<p><code>png</code>格式的图片压缩会比较难一点，和<code>jpeg</code>一样，尺寸中或大的请<code>交错</code>模式，交错模式和连续模式一样，加载方式是从低像素到高像素加载的。</p>
+<p>下面有几种压缩<code>png</code>图片的方法：</p>
+<ul>
+<li>可以上传<code>png</code>图片到<a href="https://tinypng.com/" target="_blank" rel="noopener">tinypng</a>,但这个方式有个缺点，没办法控制压缩的量，压缩太重了，图片质量太差。</li>
+<li>可以利用<a href="https://github.com/imagemin/imagemin-pngquant" target="_blank" rel="noopener">imagemin-pngquant</a>插件进行压缩，可以选择压缩的量，比第一种方法好点。</li>
+<li>但有些<code>png</code>图片在必须保证图片质量的前提下，是确实没办法压缩的，但还是可以略微调整下。<code>图像</code>-<code>调整</code>-<code>色调分离</code>。利用photoshop里面的色调分离，可以压缩一下图片的大小。</li>
+</ul>
+<p>安装imagemin-pngquant：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span> imagemin-pngquant</span><br></pre></td></tr></table></figure></p>
+<p>imagemin-pngquant的写法（具体可以参考<a href="https://github.com/imagemin/imagemin-pngquant" target="_blank" rel="noopener">README</a>）：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片压缩</span></span><br><span class="line">gulp.task(<span class="string">'imagemin'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> pngquant = <span class="built_in">require</span>(<span class="string">'imagemin-pngquant'</span>);</span><br><span class="line">    gulp.src(<span class="string">'app/common/img/src/*.png'</span>)</span><br><span class="line">        .pipe(pngquant(&#123;<span class="attr">quality</span>: <span class="string">'60'</span>, <span class="attr">speed</span>: <span class="number">4</span>&#125;)())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'app/common/img/min'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+    </article>
+</div>
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<!-- <script src="https://geektutu.github.io/hexo-theme-geektutu/js/gitalk.min.js"></script> -->
+<!-- 臨時解決方案 -->
+<script src="https://unpkg.com/gitalk/dist/gitalk.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    accessToken: '00f4c7413df974956ac1ad555e33bcc24fa06e25',
+    id: location.pathname.substr(6, 10),
+    repo: 'blog',
+    owner: 'rayliao',
+    admin: 'rayliao',
+    distractionFreeMode: 'false',
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+      </main>
+      <footer>
+        <div class="paginator">
+    
+    
+    
+    <a href="/blog/2016/02/6187/" class="prev">prev post</a>
+    
+    
+    <a href="/blog/2016/01/13903/" class="next">next post</a>
+    
+    
+
+</div>
+        <div class="copyright">
+          
+          <p>
+            © 2016 - 2020 <a href="http://www.rayliao.com/blog">Ray Liao</a>,
+            powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+            <a href="https://github.com/rayliao/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script>
+      var gitalk = new Gitalk({
+        clientID: '7ffad24fb09c5ece2adb',
+        clientSecret: '5afbe61b6e3d6adadb5c94360aa7cddc8aa0beb7',
+        repo: 'blog',
+        owner: 'rayliao',
+        admin: ['rayliao'],
+		    id: location.pathname.substr(6),
+        distractionFreeMode: false // Facebook-like distraction free mode
+      })
+
+      var container = 'gitalk-container'
+      if (window.document.getElementById(container)) {
+        gitalk.render(container)
+      }
+    </script> -->
+  </body>
+</html>
