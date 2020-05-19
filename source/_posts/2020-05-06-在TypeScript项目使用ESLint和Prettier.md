@@ -25,6 +25,8 @@ yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev
 - @typescript-eslint/parser：允许ESLint转换TypeScript代码的解析器
 - @typescript-eslint/eslint-plugin：包含一堆特定于TypeScript的ESLint规则的插件
 
+<!-- more -->
+
 接下来，在项目根目录创建一个配置文件：`.eslintrc.js`，以下是示例配置：
 
 ```js
