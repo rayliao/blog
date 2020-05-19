@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<meta name="X-UA-Compatible" , content="IE=edge">
+
+<title>react前端项目部署到iis | RayLiao</title>
+
+<meta name="description" content="浩瀚宇宙，只是尽力记录自己消耗的时光，rayliao,博客,前端,互联网,技术,生活,客家,广州,摄影,电影">
+
+<meta name="viewport" , content="width=device-width, initial-scale=1">
+<link rel="icon" href="/blog/favicon.jpeg">
+<link rel="stylesheet" href="/blog/css/apollo.css">
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a href="/blog/" class="logo-link">
+          RayLiao
+          <span data-letters="RayLiao"></span>
+          <span data-letters="RayLiao"></span>
+        </a>
+        <ul class="nav nav-list">
+    
+    
+    <li class="nav-list-item">
+        <a href="/blog/archives" class="nav-list-link " target="_self">
+            ARCHIVES
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://www.rayliao.com/" class="nav-list-link " target="_blank">
+            RAY
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="https://github.com/rayliao" class="nav-list-link " target="_blank">
+            GITHUB
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://weibo.com/574954033" class="nav-list-link " target="_blank">
+            WEIBO
+        </a>
+    </li>
+    
+</ul>
+      </header>
+      <main class="container">
+        <div class="post">
+    <article class="post-block">
+        <h1 class="post-title">
+            react前端项目部署到iis
+        </h1>
+        <div class="post-info">
+    2020年5月4日
+    
+    
+    <a href="/blog/tags/技术/" class="post-tag">#技术</a>
+    
+    
+</div>
+        <div class="post-content">
+            <p>这几天开发用于微信公众号的页面，被微信网页授权，搞得烦死了。授权好多步骤，又跟之前的小程序的<code>openid</code>有些冲突，换成<code>unionid</code>，但也遇到一系列的坑。项目是<code>create react app</code>搭建的，为了避免跨域问题，在<code>package.json</code>配置了代理。对iis不熟悉，网上搜刮了很多资料，捣腾了很久。</p>
+<a id="more"></a>
+<h4 id="BrowserRouter-or-HashRouter"><a href="#BrowserRouter-or-HashRouter" class="headerlink" title="BrowserRouter or HashRouter"></a>BrowserRouter or HashRouter</h4><p>直接使用<code>BrowserRouter</code>，iis不作配置的话，访问会报404错，路由问题，iis估计会把地址如<code>http://url/app</code>当作是<code>http://url/app.html</code>去访问，所以报404了。通过url rewrite应该就可以了，没去试过。直接使用HashRouter省事很多，不用配置，直接可以用。</p>
+<h4 id="代理映射"><a href="#代理映射" class="headerlink" title="代理映射"></a>代理映射</h4><p>项目另外配置有接口地址，只需要在<code>package.json</code>配置<code>proxy: &quot;http://api.url.com/&quot;</code>，就可以了，本地运行没问题，但这个配置只是针对node服务器生效，在iis上要生效的话，得配置URL rewrite，然后这两天就卡在这里，我本身不熟悉这一块，我朋友配置服务器也不熟悉这块，网上资料也不多，所以折腾了很久。</p>
+<p>具体就是，<code>build</code>的时候，代理接口的请求加上前缀<code>/api</code>，iis那边需要做URL的重写，把请求到<code>/api</code>的映射到接口地址去，如<code>http://api.url.com</code>，开始朋友根据网上的教程，配置成重定向了一直不行，后来配置成重写，又变成访问404。</p>
+<p>后来才找到一个教程，是要安装ARR，配置反向代理：</p>
+<p>具体需求：</p>
+<p>假如我的项目地址是<code>web.url.com</code>，接口请求数据是<code>web.url.com/api/**/**</code>，例如获取用户数据<code>web.url.com/api/user/getdata</code>，实际请求接口就应该是<code>api.url.com/user/getdata</code>。</p>
+<p>要实现上面的需求，需要iis在7及以上。</p>
+<ol>
+<li><p>安装ARR: <a href="http://www.iis.net/downloads/microsoft/application-request-routing" target="_blank" rel="noopener">下载地址</a></p>
+</li>
+<li><p>开启代理功能，进入操作版面的<code>Server Proxy Settings</code>选项，开启代理。</p>
+</li>
+<li><p>配置反向代理规则。进入部署的站点，进入URL重写功能。左侧操作菜单选择添加规则，新建一条入站规则，选择空白规则，目的是匹配请求的URL，当符合我们添加的规则时，则进行反向代理的操作，假定所有的接口请求都是这种<code>web.url.com/api/**/**</code>以api这个关键词开头，写一个正则表达式来匹配需要反向代理的url请求     </p>
+</li>
+<li><p>编辑入站规则：</p>
+<ol>
+<li>填写匹配URL选项相关信息，采用与模式匹配的正则表达式，表达式为：<code>^api/(.*)</code>，匹配所有前端站点的包含api的url请求</li>
+<li>填写条件，条件是说匹配哪个域名，填写文章开头说的前端站点的域名<code>web.url.com</code>，条件输入：<code>{HTTP_HOST}</code>（请求的主机名），模式：<code>^web.url.com$</code>(如果有端口可以加上端口)</li>
+<li>填写反向代理最终指向的地址，前面我们所做的匹配，就是为了这一步所做的准备，操作类型是重写，URL填写：<code>http://web.url.com/api/{R:1}</code>，注意前面匹配了URL中包含api关键词的URL，这里必须加上<code>/api/{R:1}</code>，<code>{R:1}</code>是说api后面的参数都带着</li>
+</ol>
+</li>
+</ol>
+<p>参考来源：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/scudfly/p/11765282.html" target="_blank" rel="noopener">React的Api代理和IIS配置</a></li>
+<li><a href="https://blog.csdn.net/u010696334/article/details/98944294" target="_blank" rel="noopener">IIS8反向代理，前后端分离部署解决方案</a></li>
+</ul>
+
+        </div>
+    </article>
+</div>
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<!-- <script src="https://geektutu.github.io/hexo-theme-geektutu/js/gitalk.min.js"></script> -->
+<!-- 臨時解決方案 -->
+<script src="https://unpkg.com/gitalk/dist/gitalk.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    accessToken: '00f4c7413df974956ac1ad555e33bcc24fa06e25',
+    id: location.pathname.substr(6),
+    repo: 'blog',
+    owner: 'rayliao',
+    admin: 'rayliao',
+    distractionFreeMode: 'false',
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+      </main>
+      <footer>
+        <div class="paginator">
+    
+    
+    
+    <a href="/blog/2020/05/ba9da8f7/" class="prev">prev post</a>
+    
+    
+    <a href="/blog/2020/05/57e4592/" class="next">next post</a>
+    
+    
+
+</div>
+        <div class="copyright">
+          
+          <p>
+            © 2016 - 2020 <a href="http://www.rayliao.com/blog">Ray Liao</a>,
+            powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+            <a href="https://github.com/rayliao/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
