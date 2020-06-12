@@ -6,6 +6,7 @@ tags:
 abbrlink: 16107
 date: 2016-01-10 15:19:21
 ---
+
 还是保留hello world这篇文章吧，hexo的command老是会忘记，折腾了很久，现在总算有个大概认知了。
 其实大部分时间都花在git上了，github的branch建了又删，删了又建，老是配置得不对，现在终于可以了，勉勉强强master作为默认的主支，放生成后的blog，`gh-source`存放源代码。
 
