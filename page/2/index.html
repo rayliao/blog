@@ -59,6 +59,54 @@
     <li class="post-list-item">
         <article class="post-block">
             <h2 class="post-title">
+                <a href="/blog/2020/03/41772/" class="post-title-link">香港爬山攻略</a>
+            </h2>
+            <div class="post-info">
+    2020年3月9日
+    
+    
+    <a href="/blog/tags/旅行/" class="post-tag">#旅行</a>
+    
+    <a href="/blog/tags/香港/" class="post-tag">#香港</a>
+    
+    
+</div>
+            <div class="post-content">
+                <p>似乎是老婆一个同事的老公总结的，一直很想去感受下香港爬山，但没机会，估摸着之后很长一段时间内都没什么机会了，留着以备不时之需。</p>
+<p>每到三四天的假期就跑去香港，有山有海的轻松徒步线总结一下：</p>
+            </div>
+            <a href="/blog/2020/03/41772/" class="read-more">...more</a>
+        </article>
+    </li>
+    
+    <li class="post-list-item">
+        <article class="post-block">
+            <h2 class="post-title">
+                <a href="/blog/2019/09/664/" class="post-title-link">使用svg代替icon font</a>
+            </h2>
+            <div class="post-info">
+    2019年9月25日
+    
+    
+    <a href="/blog/tags/技术/" class="post-tag">#技术</a>
+    
+    <a href="/blog/tags/前端优化/" class="post-tag">#前端优化</a>
+    
+    
+</div>
+            <div class="post-content">
+                <p>工作中遇到的问题，项目中有使用字体图标，因为需求设计把logo形态的图标也加到了字体图标库中，但因为这些新加的图标并不是正方形的，而是长方形的，当使用的时候，就需要设置成很大的字号，才能显示正常，然<code>iconfont</code>上的字体图标制作标准是方形的，也就导致了字体的高度也会和宽度一样，这显然不利于页面布局。</p>
+<p>用万能的搜索引擎寻找了下解决方案，发现可以用<code>svg</code>代替。</p>
+<p>开始考虑想一个个<code>svg</code>图标导进去使用，但页面那里引入<code>svg</code>和使用布局混在一起，太乱了：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+            </div>
+            <a href="/blog/2019/09/664/" class="read-more">...more</a>
+        </article>
+    </li>
+    
+    <li class="post-list-item">
+        <article class="post-block">
+            <h2 class="post-title">
                 <a href="/blog/2019/09/30386/" class="post-title-link">少儿编程相关资料</a>
             </h2>
             <div class="post-info">
@@ -243,53 +291,6 @@
 <p>首先需要先下载安装<a href="http://www.graphicsmagick.org/" target="_blank" rel="noopener">GraphicsMagick</a>和<a href="http://www.imagemagick.org/script/index.php" target="_blank" rel="noopener">ImageMagick</a>。（这里说下为什么需要安装这两个软件，因为<code>sprity</code>默认使用的图片引擎是<code>lwip</code>，而在<code>windows</code>环境下，<code>lwip</code>是个坑，很难安装成功，所以把引擎换成<code>gm</code>，也就需要安装前面那两个软件，当然如果你是<code>mac</code>环境，可以选用<code>lwip</code>的引擎。）</p>
             </div>
             <a href="/blog/2016/02/51955/" class="read-more">...more</a>
-        </article>
-    </li>
-    
-    <li class="post-list-item">
-        <article class="post-block">
-            <h2 class="post-title">
-                <a href="/blog/2016/01/13903/" class="post-title-link">绘制一个圆环logo</a>
-            </h2>
-            <div class="post-info">
-    2016年1月25日
-    
-    
-    <a href="/blog/tags/Design/" class="post-tag">#Design</a>
-    
-    <a href="/blog/tags/Photoshop/" class="post-tag">#Photoshop</a>
-    
-    
-</div>
-            <div class="post-content">
-                <p>最近趁有一点时间，想把之前很久mark下来的<a href="http://www.uisdc.com/photoshop-fabulous-colorful-ring" target="_blank" rel="noopener">ps教程</a>学一下，去到第6步就卡住了，一点都不新手啊，还好我算懂点ps，完全不懂ps的，可要怎么学哟。</p>
-<p>所以当时我就在想，要把这个教程补充完整，新手能够看得懂的来。</p>
-<h5 id="1-首先用绘图工具画一个椭圆形，形状按自己的需求来。"><a href="#1-首先用绘图工具画一个椭圆形，形状按自己的需求来。" class="headerlink" title="1.首先用绘图工具画一个椭圆形，形状按自己的需求来。"></a>1.首先用绘图工具画一个椭圆形，形状按自己的需求来。</h5><p>第一步之前，需要先新建一个<code>psd</code>文件，尺寸大约六七百像素就可以了，太小不好做图，太大没必要，背景色选白色就可以了，当然你也可以凭自己的爱好选择其他颜色。然后选择「椭圆工具」，按住鼠标拖拽到适合的大小，这个大小可以目测一下，跟教程里面的大小差不多就可以了。</p>
-<p>这里有个坑，我就是因为这个坑卡住，导致我要向设计师妹子求助，可能你不会像我那么蠢，不过我还是写一下提醒一下，因为我习惯用「油漆桶工具」，所以画完椭圆形之后，因为前景色不是我要的颜色，所以我重新选择了前景色，然后用油漆桶工具把颜色填充进去，然后提示我是否要栅格化图层，我一直不懂栅格化图层是什么意思，所以义无反顾的选择了栅格化图层，然后就悲剧了，到后面第6步，一直不行。原来后面是需要这些椭圆为一个图层，而不是栅格化后的图片。</p>
-            </div>
-            <a href="/blog/2016/01/13903/" class="read-more">...more</a>
-        </article>
-    </li>
-    
-    <li class="post-list-item">
-        <article class="post-block">
-            <h2 class="post-title">
-                <a href="/blog/2016/01/975/" class="post-title-link">创建新文章</a>
-            </h2>
-            <div class="post-info">
-    2016年1月16日
-    
-    
-    <a href="/blog/tags/Hexo/" class="post-tag">#Hexo</a>
-    
-    <a href="/blog/tags/技术/" class="post-tag">#技术</a>
-    
-    
-</div>
-            <div class="post-content">
-                <p>试一下创建一篇新的文章，感觉还是挺方便的，用hexo来写文章，就是不知道文章用中文名字行不行，我以为会自动换成拼音的写法。然后现在那个主题有点问题，不知道为什么首页的文章列表不会显示文章内容的摘要，试下创建一篇新的文章，来测试下。</p>
-            </div>
-            <a href="/blog/2016/01/975/" class="read-more">...more</a>
         </article>
     </li>
     

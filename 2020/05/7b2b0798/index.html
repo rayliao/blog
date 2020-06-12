@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<meta name="X-UA-Compatible" , content="IE=edge">
+
+<title>webp是该用起来了 | RayLiao</title>
+
+<meta name="description" content="浩瀚宇宙，只是尽力记录自己消耗的时光，rayliao,博客,前端,互联网,技术,生活,客家,广州,摄影,电影">
+
+<meta name="viewport" , content="width=device-width, initial-scale=1">
+<link rel="icon" href="/blog/favicon.jpeg">
+<link rel="stylesheet" href="/blog/css/apollo.css">
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a href="/blog/" class="logo-link">
+          RayLiao
+          <span data-letters="RayLiao"></span>
+          <span data-letters="RayLiao"></span>
+        </a>
+        <ul class="nav nav-list">
+    
+    
+    <li class="nav-list-item">
+        <a href="/blog/archives" class="nav-list-link " target="_self">
+            ARCHIVES
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://www.rayliao.com/" class="nav-list-link " target="_blank">
+            RAY
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="https://github.com/rayliao" class="nav-list-link " target="_blank">
+            GITHUB
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://weibo.com/574954033" class="nav-list-link " target="_blank">
+            WEIBO
+        </a>
+    </li>
+    
+</ul>
+      </header>
+      <main class="container">
+        <div class="post">
+    <article class="post-block">
+        <h1 class="post-title">
+            webp是该用起来了
+        </h1>
+        <div class="post-info">
+    2020年5月22日
+    
+    
+    <a href="/blog/tags/技术/" class="post-tag">#技术</a>
+    
+    
+</div>
+        <div class="post-content">
+            <p>webp的好处不用多说了，相比jpg和png格式，文件大小能节省很多。但因为并不是所有浏览器都支持，所以需要做一些兼容处理。</p>
+<h3 id="得到webp"><a href="#得到webp" class="headerlink" title="得到webp"></a>得到webp</h3><p>随便搜索引擎一搜，会有很多在线转换图片格式的工具，也有很多可供下载的工具，看你自己怎么用了，比如说前端的<code>gulp</code>，会有对应的图片压缩转换的插件可使用。这里我就说下google提供的的命令行工具<code>webp</code>。</p>
+<p>在Mac下可以使用homebrew安装webp工具：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install webp</span><br></pre></td></tr></table></figure>
+<p>安装完成之后，就可以使用cwebp将jpg或png转成webp格式：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cwebp [-preset &lt;...&gt;] [options] in_file [-o out_file]</span><br></pre></td></tr></table></figure>
+<p>更多的操作自行查阅<a href="https://developers.google.com/speed/webp/docs/using" target="_blank" rel="noopener">文档</a>吧。</p>
+<a id="more"></a>
+<h3 id="后端处理"><a href="#后端处理" class="headerlink" title="后端处理"></a>后端处理</h3><p>这里就不细说了，大概原理就是在浏览器向服务器发起请求时，对于支持webp图片的浏览器，会在请求头Accept中带上image/webp的信息，服务器就能识别浏览器是否支持webp从而返回对应的图片格式，具体可查看凹凸实验室的文章——<a href="https://aotu.io/notes/2016/06/23/explore-something-of-webp/" target="_blank" rel="noopener">探究WebP一些事儿</a></p>
+<h3 id="前端处理"><a href="#前端处理" class="headerlink" title="前端处理"></a>前端处理</h3><p>在页面上可以使用<code>picture</code>标签来做兼容，会根据浏览器设备版本选择不同的选项：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- JPEG --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span></span></span><br><span class="line"><span class="tag">        <span class="attr">srcset</span>=<span class="string">"./images/example.jpg"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">type</span>=<span class="string">"image/jpeg"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- WebP --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span></span></span><br><span class="line"><span class="tag">        <span class="attr">srcset</span>=<span class="string">"./images/example.webp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">type</span>=<span class="string">"image/webp"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- The fallback --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">        <span class="attr">src</span>=<span class="string">"./images/example.jpg"</span> <span class="attr">alt</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但这样写会比较臃肿，可以通过<code>Service Wroker</code>来拦截网络请求，监听fetch事件，根据Accept头部来判断浏览器是否支持webp图片，并且查找是否存在<code>image/webp</code>Mime类型，这样就可以确定并替换成webp返回。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// serviceWorker.ts</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'fetch'</span>, <span class="function">(<span class="params">e: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// Clone the request</span></span><br><span class="line">    <span class="keyword">const</span> req = e.request.clone()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check if the image is a jpeg</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/\.jpg$|.png$/</span>.test(e.request.url)) &#123;</span><br><span class="line">    <span class="comment">// Get all of the headers</span></span><br><span class="line">    <span class="keyword">const</span> headers: <span class="built_in">string</span>[] = <span class="built_in">Array</span>.from(req.headers.entries())</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Inspect the accept header for WebP support</span></span><br><span class="line">    <span class="keyword">const</span> acceptHeader: <span class="built_in">string</span>[] = headers.filter(</span><br><span class="line">        (item) =&gt; item[<span class="number">0</span>] === <span class="string">'accept'</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">const</span> supportsWebp = acceptHeader[<span class="number">1</span>].includes(<span class="string">'webp'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// If we support WebP</span></span><br><span class="line">    <span class="keyword">if</span> (supportsWebp) &#123;</span><br><span class="line">        <span class="comment">// Build the return URL</span></span><br><span class="line">        <span class="keyword">const</span> returnUrl =</span><br><span class="line">        req.url.substr(<span class="number">0</span>, req.url.lastIndexOf(<span class="string">'.'</span>)) + <span class="string">'.webp'</span></span><br><span class="line"></span><br><span class="line">        e.respondWith(</span><br><span class="line">        fetch(returnUrl, &#123;</span><br><span class="line">            mode: <span class="string">'no-cors'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>然后页面就可以写得简单些：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span></span></span><br><span class="line"><span class="tag">        <span class="attr">srcset</span>=<span class="string">"./images/example.jpg"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">type</span>=<span class="string">"image/jpeg"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但看了下这个<a href="https://deanhume.github.io/Service-Workers-WebP/" target="_blank" rel="noopener">例子</a>，也一样会去请求jpg的图片，那这样就不起作用了。</p>
+<h3 id="React下使用且要支持CSS内使用"><a href="#React下使用且要支持CSS内使用" class="headerlink" title="React下使用且要支持CSS内使用"></a>React下使用且要支持CSS内使用</h3><p>上面的方式是挺方便的，但因为我的个人网站目前使用react，有些图片是导入进去使用的，我试了下如此service worker的方式就不支持了。加之很多时候会在css内引入背景图片，所以不能在service worker做判断，那就还是在页面上操作：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ImgWithFallback = (&#123;</span><br><span class="line">  src,</span><br><span class="line">  fallback,</span><br><span class="line">  type = <span class="string">'image/webp'</span>,</span><br><span class="line">  ...delegated</span><br><span class="line">&#125;) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;picture&gt;</span><br><span class="line">      &lt;source srcSet=&#123;src&#125; type=&#123;type&#125; /&gt;</span><br><span class="line">      &lt;img src=&#123;fallback&#125; &#123;...delegated&#125; /&gt;</span><br><span class="line">    &lt;<span class="regexp">/picture&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+<p>使用的时候是：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ImgWithFallback</span><br><span class="line">  src=&#123;<span class="built_in">require</span>(<span class="string">"./images/example.webp"</span>)&#125;</span><br><span class="line">  fallback=&#123;<span class="built_in">require</span>(<span class="string">"./images/example.png"</span>)&#125;</span><br><span class="line">  alt=<span class="string">"example"</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>想要在css内使用webp，就得知道浏览器是否支持webp，然后在html加上一个class做标识，如此在css内使用background引入图片的时候，就可以根据class去引入不同格式的图片。</p>
+<p>如何知道浏览器是否支持webp呢，创建一个canvas判断下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">canUseWebP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> elem = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</span><br><span class="line">    <span class="keyword">if</span> (!!(elem.getContext &amp;&amp; elem.getContext(<span class="string">'2d'</span>))) &#123;</span><br><span class="line">        <span class="comment">// was able or not to get WebP representation</span></span><br><span class="line">        <span class="keyword">return</span> elem.toDataURL(<span class="string">'image/webp'</span>).indexOf(<span class="string">'data:image/webp'</span>) == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// very old browser like IE 8, canvas not supported</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后根据判断在html标签加上class即可。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://aotu.io/notes/2015/11/06/webp-responsive-image/" target="_blank" rel="noopener">https://aotu.io/notes/2015/11/06/webp-responsive-image/</a></li>
+<li><a href="https://aotu.io/notes/2016/06/23/explore-something-of-webp/" target="_blank" rel="noopener">https://aotu.io/notes/2016/06/23/explore-something-of-webp/</a></li>
+<li><a href="https://www.npmjs.com/package/react-image-webp" target="_blank" rel="noopener">https://www.npmjs.com/package/react-image-webp</a></li>
+<li><a href="https://joshwcomeau.com/performance/embracing-modern-image-formats/" target="_blank" rel="noopener">https://joshwcomeau.com/performance/embracing-modern-image-formats/</a></li>
+<li><a href="https://developers.google.com/speed/webp/docs/using" target="_blank" rel="noopener">https://developers.google.com/speed/webp/docs/using</a></li>
+<li><a href="https://css-tricks.com/using-webp-images/#article-header-id-3" target="_blank" rel="noopener">https://css-tricks.com/using-webp-images/#article-header-id-3</a></li>
+</ul>
+
+        </div>
+    </article>
+</div>
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<!-- <script src="https://geektutu.github.io/hexo-theme-geektutu/js/gitalk.min.js"></script> -->
+<!-- 臨時解決方案 -->
+<script src="https://unpkg.com/gitalk/dist/gitalk.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    accessToken: '00f4c7413df974956ac1ad555e33bcc24fa06e25',
+    id: location.pathname.substr(6),
+    repo: 'blog',
+    owner: 'rayliao',
+    admin: 'rayliao',
+    distractionFreeMode: 'false',
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+      </main>
+      <footer>
+        <div class="paginator">
+    
+    
+    
+    <a href="/blog/2020/06/bb608ee0/" class="prev">prev post</a>
+    
+    
+    <a href="/blog/2020/05/57cb9257/" class="next">next post</a>
+    
+    
+
+</div>
+        <div class="copyright">
+          
+          <p>
+            © 2016 - 2020 <a href="http://www.rayliao.com/blog">Ray Liao</a>,
+            powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+            <a href="https://github.com/rayliao/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
