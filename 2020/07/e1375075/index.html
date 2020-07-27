@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<meta name="X-UA-Compatible" , content="IE=edge">
+
+<title>🦆Windows下运行yarn exit code: 128 | RayLiao</title>
+
+<meta name="description" content="浩瀚宇宙，只是尽力记录自己消耗的时光，rayliao,博客,前端,互联网,技术,生活,客家,广州,摄影,电影">
+
+<meta name="viewport" , content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍🏻</text></svg>">
+<link rel="stylesheet" href="/blog/css/apollo.css">
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a href="/blog/" class="logo-link">
+          RayLiao
+          <span data-letters="RayLiao"></span>
+          <span data-letters="RayLiao"></span>
+        </a>
+        <ul class="nav nav-list">
+    
+    
+    <li class="nav-list-item">
+        <a href="/blog/archives" class="nav-list-link " target="_self">
+            ARCHIVES
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://www.rayliao.com/" class="nav-list-link " target="_blank">
+            RAY
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="https://github.com/rayliao" class="nav-list-link " target="_blank">
+            GITHUB
+        </a>
+    </li>
+    
+    
+    <li class="nav-list-item">
+        <a href="http://weibo.com/574954033" class="nav-list-link " target="_blank">
+            WEIBO
+        </a>
+    </li>
+    
+</ul>
+      </header>
+      <main class="container">
+        <div class="post">
+    <article class="post-block">
+        <h1 class="post-title">
+            🦆Windows下运行yarn exit code: 128
+        </h1>
+        <div class="post-info">
+    2020年7月27日
+    
+    
+    <a href="/blog/tags/技术/" class="post-tag">#技术</a>
+    
+    
+</div>
+        <div class="post-content">
+            <p>项目运行yarn安装依赖报128错。昨晚11点多尝试了几次，今天早上起来又尝试了几次。在google找答案，issues上的答案都尝试了一遍。</p>
+<p>有人说清理缓存，yarn clean cache，不行。<br>有人说删掉cache文件夹，不行。<br>有人说删掉yarn.lock，不行。<br>有人说删掉node_modules，没安装成功不存在node_modules。</p>
+<a id="more"></a>
+<p>无答案参考：<a href="https://github.com/yarnpkg/yarn/issues/3303" target="_blank" rel="noopener">https://github.com/yarnpkg/yarn/issues/3303</a></p>
+<p>然后以为是yarn的问题，换用npm去安装，发现依旧还是同样的错误。</p>
+<p>接着安装好了outline，尝试挂VPN安装，IT WORKS！</p>
+<p>唉，国内的开发环境就是有这些掣肘。想要顺利开发，你得先学习如果科学上网，纯粹科学上网还不行，像Shadowsocks这些软件只能用于正常浏览器上网，要想让命令行也穿透，得使用outline。</p>
+<p>——这是最好的时代</p>
+
+        </div>
+    </article>
+</div>
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<!-- <script src="https://geektutu.github.io/hexo-theme-geektutu/js/gitalk.min.js"></script> -->
+<!-- 臨時解決方案 -->
+<script src="https://unpkg.com/gitalk/dist/gitalk.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    accessToken: '00f4c7413df974956ac1ad555e33bcc24fa06e25',
+    id: location.pathname.substr(6),
+    repo: 'blog',
+    owner: 'rayliao',
+    admin: 'rayliao',
+    distractionFreeMode: 'false',
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+      </main>
+      <footer>
+        <div class="paginator">
+    
+    
+    
+    <a href="/blog/2020/07/fd9b7b05/" class="prev">prev post</a>
+    
+    
+    <a href="/blog/2020/07/5adce451/" class="next">next post</a>
+    
+    
+
+</div>
+        <div class="copyright">
+          
+          <p>
+            © 2016 - 2020 <a href="http://www.rayliao.com/blog">Ray Liao</a>,
+            powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+            <a href="https://github.com/rayliao/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
