@@ -5,7 +5,7 @@
 # Site
 title: RayLiao
 subtitle: 不入流札记
-description: 浩瀚宇宙，只是尽力记录自己消耗的时光，rayliao,博客,前端,互联网,技术,生活,客家,广州,摄影,电影
+description: 浩瀚宇宙，只是尽力记录自己消耗的时光 | rayliao,博客,前端,互联网,技术,生活,客家,广州,摄影,电影
 author: Ray Liao
 language: zh-cn
 timezone:
@@ -18,8 +18,8 @@ permalink: :year/:month/:abbrlink/
 permalink_defaults:
 # abbrlink config
 abbrlink:
-  alg: crc32  #support crc16(default) and crc32
-  rep: hex    #support dec(default) and hex
+  alg: crc32 #support crc16(default) and crc32
+  rep: hex #support dec(default) and hex
 
 # Directory
 source_dir: source
@@ -68,6 +68,20 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: apollo
+
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: " "
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
