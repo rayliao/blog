@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Ray&#39;s Blog</title>
+  
+  <subtitle>不入流札记</subtitle>
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="http://www.rayliao.com/blog/"/>
+  <updated>2021-06-09T07:06:18.441Z</updated>
+  <id>http://www.rayliao.com/blog/</id>
+  
+  <author>
+    <name>Ray</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MBP电源适配器解决方案</title>
+    <link href="http://www.rayliao.com/blog/2021/06/487efd09/"/>
+    <id>http://www.rayliao.com/blog/2021/06/487efd09/</id>
+    <published>2021-06-06T09:17:10.000Z</published>
+    <updated>2021-06-09T07:06:18.441Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自己那台MBP好多年了，印象中是15年买的了。&lt;code&gt;MacBook Pro (Retina, 13-inch, Early 2015)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;记得是在苹果团买的，那是自己的第二台笔记本，工作后自己给自己买的第一台笔记本，那时刚过来广州公司不久，自己越来越熟悉前端的东西，看着同事用着苹果电脑可真是帅气，自己忍不住也想买一台。然后就用到现在，一直用得好好的，虽然没敲过多少代码，但陪伴过自己很长时间。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>寻找适合的RSS阅读器</title>
+    <link href="http://www.rayliao.com/blog/2021/06/ce643c8c/"/>
+    <id>http://www.rayliao.com/blog/2021/06/ce643c8c/</id>
+    <published>2021-06-04T06:11:01.000Z</published>
+    <updated>2021-06-04T06:49:46.037Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;起因是发现自己摸鱼想看新闻的时候，得通过Chrome的书签一个个去点开来看，终究还是太麻烦，那就把&lt;code&gt;RSS&lt;/code&gt;用起来把，老早就知道RSS，也想着去使用下，但一直觉得自己原来那样看资讯也没什么问题。&lt;/p&gt;
+&lt;p&gt;目前暂时不想折腾自己搭建&lt;code&gt;RSS&lt;/code&gt;服务，所以这方面没深入去考虑，只是大概了解了下，可以群晖部署&lt;code&gt;NAS&lt;/code&gt;，也可以用&lt;code&gt;docker&lt;/code&gt;部署&lt;code&gt;tiny tiny rss&lt;/code&gt;，对RSS订阅源也要求不高，所以也用不上&lt;code&gt;RSS HUB&lt;/code&gt;，万物皆可RSS，但自己关注的公众号多数已经有RSS，其他社交网站如&lt;code&gt;Twitter&lt;/code&gt;，还是原网站浏览好了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>买了个Google Voice</title>
+    <link href="http://www.rayliao.com/blog/2021/06/aac484df/"/>
+    <id>http://www.rayliao.com/blog/2021/06/aac484df/</id>
+    <published>2021-06-03T04:04:37.000Z</published>
+    <updated>2021-06-03T06:39:18.862Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;起因是自己以前在某宝买的美区 apple id 被永久停用了，找不回来。原因不明，不过我猜测应该是之前在某宝上买的礼品充值卡，说不定，也有可能是这个 id 本身就有问题，等我想找下买家的时候，只剩下购买订单，其他什么都已经不存在了，这就是吃一垫长一智。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>周记0404</title>
+    <link href="http://www.rayliao.com/blog/2021/04/b822e356/"/>
+    <id>http://www.rayliao.com/blog/2021/04/b822e356/</id>
+    <published>2021-04-11T15:15:15.000Z</published>
+    <updated>2021-04-15T01:20:21.837Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转眼又过了一个季度，时间快到自己经历过什么都不太记得了。所有说，记录下一切还是很有必要的，多写多拍，这样的话得尽快买群晖NAS（又在自我找理由了）。&lt;/p&gt;
+&lt;p&gt;首先这周遇上清明放假，放假时间多了起来，昨天约姑一起出去喝早茶，然后中午在东海花园吃饭，间隔时间太短了，姑做了很多菜，但吃不了多少，老准跟两只猫玩得很开心，老板客厅也足够大，老准来回跑得开心死。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日记" scheme="http://www.rayliao.com/blog/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何了解自己喜爱的公司股票</title>
+    <link href="http://www.rayliao.com/blog/2021/04/f66801c8/"/>
+    <id>http://www.rayliao.com/blog/2021/04/f66801c8/</id>
+    <published>2021-04-11T15:09:49.000Z</published>
+    <updated>2021-04-15T01:20:21.837Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;了解公司的基本信息&quot;&gt;&lt;a href=&quot;#了解公司的基本信息&quot; class=&quot;headerlink&quot; title=&quot;了解公司的基本信息&quot;&gt;&lt;/a&gt;了解公司的基本信息&lt;/h4&gt;&lt;p&gt;首先得了解公司的基本信息，因为是自己喜爱的公司，那多多少少还是有基础认知的，可能对于那些专业人士来说，只通过F10简介了解一家公司很随便随意，但我想入门初次了解还是很好的，了解下公司是做什么的，在哪里，公司厉害的点在哪里，就是说公司是靠什么在挣钱，该公司处于同行业什么地位，公司有什么优缺点，近年的经营情况如何，有没有什么黑历史，公司所处的行业如何。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="投资" scheme="http://www.rayliao.com/blog/tags/%E6%8A%95%E8%B5%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>❤️挑选喜爱能理解有接触的公司股票</title>
+    <link href="http://www.rayliao.com/blog/2021/03/8ff7e48e/"/>
+    <id>http://www.rayliao.com/blog/2021/03/8ff7e48e/</id>
+    <published>2021-03-20T15:23:11.000Z</published>
+    <updated>2021-04-15T01:20:21.837Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录下自己的投资理念挺好的，我想随着自己的阅历以及了解，会慢慢变化吧，到时候就会觉得当初的自己怎么那么天真那么傻。&lt;/p&gt;
+&lt;p&gt;列一下自己喜爱的，有接触平时生活有关联，能理解的公司股票，加入自选仓，关注之。&lt;/p&gt;
+&lt;p&gt;比较好理解又息息相关的就是衣食住行了，如：保险，白色家电，传媒，电力，服装家纺，房地产，机场航运，景点及旅游，计算机，零售，农产品加工，汽车整车，燃气水务，食品加工制造，通信服务，物流，银行，饮料制造，证券。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="投资" scheme="http://www.rayliao.com/blog/tags/%E6%8A%95%E8%B5%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>致儿子（三）</title>
+    <link href="http://www.rayliao.com/blog/2020/09/4860e6c0/"/>
+    <id>http://www.rayliao.com/blog/2020/09/4860e6c0/</id>
+    <published>2020-09-06T13:18:47.000Z</published>
+    <updated>2021-03-26T06:17:22.972Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;你好啊，儿子。&lt;/p&gt;
+&lt;p&gt;今天是中元节，你妈中午整了挺多菜，好吃。&lt;/p&gt;
+&lt;p&gt;前两天带你去理发店，给你整了个挺帅气的发型，你妈也在从旁偷师，往后还是可以在家帮你理。那家理发店并没有专门给小孩理发的设备，提前约了还等了半个多小时，以后你爸也不去那里剪头发了。&lt;/p&gt;
+&lt;p&gt;你最近越来越躁动了，拳打脚踢力气大得很，翻身已经很熟练，给你在床上，你可以从床头翻来翻去到床尾，脚蹬几下就可以调转方向，双腿弯着屁股撅得老高，但还不能同时用手把头撑起来，所以你就像小猪拱白菜似的，前进。&lt;/p&gt;
+&lt;p&gt;有时你就安静的趴着，认真啃咬着玩具，有时你趴着伸直了双手，把上半身撑老高，抬着头眼汪汪好奇地看着我跟你妈还有你奶奶在吃水果，口水止不停。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日记" scheme="http://www.rayliao.com/blog/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>🎢八月书影音</title>
+    <link href="http://www.rayliao.com/blog/2020/09/b764f287/"/>
+    <id>http://www.rayliao.com/blog/2020/09/b764f287/</id>
+    <published>2020-09-02T13:45:52.000Z</published>
+    <updated>2021-03-09T01:59:26.618Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;📖啃经济相关的书&quot;&gt;&lt;a href=&quot;#📖啃经济相关的书&quot; class=&quot;headerlink&quot; title=&quot;📖啃经济相关的书&quot;&gt;&lt;/a&gt;📖啃经济相关的书&lt;/h4&gt;&lt;p&gt;这个月读了好几本书，都是经济相关的，看得比较急躁，虽然一直告诫自己不要急于求成，妄想着看完一本书就能找到投资的门道，但看到理解费劲或者布道式讲解，也会直接跳过。&lt;/p&gt;
+&lt;p&gt;会觉得了解得越多，越困惑。因为你会发觉低买高卖说起来很简单，但有太多的因素在互相影响着，现在在看的「股市进阶之道——一个散户的自我修养」，里边说的很多观点比较认同。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>🛒八月买了什么</title>
+    <link href="http://www.rayliao.com/blog/2020/08/c1e01819/"/>
+    <id>http://www.rayliao.com/blog/2020/08/c1e01819/</id>
+    <published>2020-08-30T14:07:27.000Z</published>
+    <updated>2021-03-09T01:59:26.604Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;📺红米电视X65&quot;&gt;&lt;a href=&quot;#📺红米电视X65&quot; class=&quot;headerlink&quot; title=&quot;📺红米电视X65&quot;&gt;&lt;/a&gt;📺红米电视X65&lt;/h4&gt;&lt;p&gt;一直心心念念，终究还是下手了。下手之前，考虑了很久，有事没事就打开某东和V2EX看看。&lt;/p&gt;
+&lt;p&gt;还跑去小米之家现场看了看效果，本打算买55寸，现场几种尺寸放那一对比，65寸实在是太勾引人了。&lt;/p&gt;
+&lt;p&gt;小米有品上55寸的没货，种草过后内心被撩拨的很是烦躁，最后实在难受就摁下了「提交订单」的按钮。&lt;/p&gt;
+&lt;p&gt;客厅也没去量尺寸，所以下班回到家被电视尺寸吓到了，然后看着沙发和电视那两米多一点而已的距离，内心有些后悔，开始也不适应，总感觉眼睛看不过来。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>💄了解下电商联盟推广赚取佣金</title>
+    <link href="http://www.rayliao.com/blog/2020/07/fd9b7b05/"/>
+    <id>http://www.rayliao.com/blog/2020/07/fd9b7b05/</id>
+    <published>2020-07-27T04:01:10.000Z</published>
+    <updated>2020-07-27T04:02:46.439Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因DD和YF介绍说加入一个妈妈买东西的微信群，原本想着我们都属于理性消费的人，就加入了微信群，想着也顺便了解下她们这些建群做推广是怎么赚钱的。虽然还是理性消费，但明显加入群之后老婆的购买次数有显著的提升。&lt;/p&gt;
+&lt;p&gt;老婆也拖我了解下这方面的资料，看一下自己带小孩的闲暇时间能否也可以轻松的赚一些纸尿裤的钱。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="体验" scheme="http://www.rayliao.com/blog/tags/%E4%BD%93%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>🦆Windows下运行yarn exit code: 128</title>
+    <link href="http://www.rayliao.com/blog/2020/07/e1375075/"/>
+    <id>http://www.rayliao.com/blog/2020/07/e1375075/</id>
+    <published>2020-07-27T04:00:56.000Z</published>
+    <updated>2020-07-27T04:02:46.438Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;项目运行yarn安装依赖报128错。昨晚11点多尝试了几次，今天早上起来又尝试了几次。在google找答案，issues上的答案都尝试了一遍。&lt;/p&gt;
+&lt;p&gt;有人说清理缓存，yarn clean cache，不行。&lt;br&gt;有人说删掉cache文件夹，不行。&lt;br&gt;有人说删掉yarn.lock，不行。&lt;br&gt;有人说删掉node_modules，没安装成功不存在node_modules。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://www.rayliao.com/blog/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>🛠前端win10开发环境配置</title>
+    <link href="http://www.rayliao.com/blog/2020/07/5adce451/"/>
+    <id>http://www.rayliao.com/blog/2020/07/5adce451/</id>
+    <published>2020-07-17T06:18:33.000Z</published>
+    <updated>2020-07-17T06:36:31.844Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;🗽科学上网&quot;&gt;&lt;a href=&quot;#🗽科学上网&quot; class=&quot;headerlink&quot; title=&quot;🗽科学上网&quot;&gt;&lt;/a&gt;🗽科学上网&lt;/h3&gt;&lt;p&gt;这个还是得最先配置好，才不会束手束脚的，下载软件也方便。&lt;/p&gt;
+&lt;p&gt;一句话：安装Shadowsocks，自己找线路。&lt;/p&gt;
+&lt;p&gt;不展开。&lt;/p&gt;
+&lt;h3 id=&quot;📦装机必备软件&quot;&gt;&lt;a href=&quot;#📦装机必备软件&quot; class=&quot;headerlink&quot; title=&quot;📦装机必备软件&quot;&gt;&lt;/a&gt;📦装机必备软件&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;更新最新版的Microsoft Edge（自从使用谷歌的内核后，很好用了&lt;/li&gt;
+&lt;li&gt;微信客户端（不得不用的，顺便充当截图工具&lt;/li&gt;
+&lt;li&gt;Photoshop（切图仔老实安装吧&lt;/li&gt;
+&lt;li&gt;Microsoft Office（网络好的话，其实在线版就挺好，onedrive已经越来越好用了&lt;/li&gt;
+&lt;li&gt;Visual Studio Code（现今最好用的，很多插件自己选择了&lt;/li&gt;
+&lt;li&gt;Chrome浏览器&lt;/li&gt;
+&lt;li&gt;Microsoft Terminal Preview&lt;/li&gt;
+&lt;li&gt;7-Zip&lt;/li&gt;
+&lt;li&gt;Telegram（选装&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://www.rayliao.com/blog/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>🍉准初次返乡记</title>
+    <link href="http://www.rayliao.com/blog/2020/06/f204d9eb/"/>
+    <id>http://www.rayliao.com/blog/2020/06/f204d9eb/</id>
+    <published>2020-06-28T08:40:53.000Z</published>
+    <updated>2020-06-28T08:47:06.109Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;归途一切也顺利，起早叫醒老准给他洗好澡，接着就带细姨去南站坐高铁，在小区江边门口走了一会就遇到有摩托佬，去到洛溪地铁站月台就刚好有车到，很快速的抵达南站，接着自己返回在洛溪买了水果，回小区准备一起出发回家。&lt;/p&gt;
+&lt;p&gt;在华快和广河塞了几段路，老准此时也不是很乖，在哭闹，或许是不适应车上的环境，或许是坐着不舒服，也或许是想吃想睡，还好没多久结束塞车完了，差不多老准也被他妈哄乖巧了，在儿童座椅上思考人生般出神的坐着，偶尔激动的吃着手，玩着小风扇。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安全座椅个人深度体验</title>
+    <link href="http://www.rayliao.com/blog/2020/06/f6f11f5a/"/>
+    <id>http://www.rayliao.com/blog/2020/06/f6f11f5a/</id>
+    <published>2020-06-28T08:39:05.000Z</published>
+    <updated>2020-06-28T08:40:11.920Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我爸妈在纠结了几天之后，那天夜里终于下了决心在购物车选中，用力的按下了支付按钮。我爸当时脸上表情是贫穷的，虽然我没看到，但根据他按下按钮之前后跟我妈说“确定买？确定吗？买吗？买，买了哦，买了哦，买了！啊”可推断出。某东很快，隔天就到了，快递小哥（不对，以我的年纪应该叫快递阿伯）扛了上来，我妈抱怨我爸不该寄到家里来，又还得自己扛下去。&lt;/p&gt;
+&lt;p&gt;中午我爸回来把座椅拿出来放在客厅沙发散味，他跟我妈商量今晚吃完饭研究下趁着天未黑就把座椅拿下去安装。晚上他们吃完饭我也饿了就在房间吃奶，我爸似乎就在客厅认真的摆弄着，时不时翻阅下说明书，他以前读书的时候都没那么认真吧。然后他进来跟我妈说先下去安装好，等我吃好了带我下去体验。我妈准了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>📺 如何安逸地刷剧刷电影</title>
+    <link href="http://www.rayliao.com/blog/2020/06/841b4b37/"/>
+    <id>http://www.rayliao.com/blog/2020/06/841b4b37/</id>
+    <published>2020-06-18T04:18:45.000Z</published>
+    <updated>2020-06-18T07:59:29.350Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;去年有便宜买到百度网盘的会员，找好资源的磁力链接之后，在网盘下载来看，是挺愉快的。然而今年会员没优惠了，感觉负担不起，加之被动以及主动地减少观影量，所以也就不打算购入网盘会员。且后来发现，在telegram上资源还挺丰富，刷剧刷电影也挺爽的，虽然是频道推什么你看什么，比较被动，但也能找到一些经典剧集，偏欧美的多。&lt;/p&gt;
+&lt;p&gt;这次因为爱人也太久没看剧，想找些剧给她看，我想到前段时间挺火的「机智的医生生活」。原本想着在线看，但清晰度差强人意，终究还是要下载下来看比较舒服。&lt;/p&gt;
+&lt;p&gt;如此，就只能自己找找资料，搭起一个从找资源，下载到观赏的安逸舒适的观影之旅吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.rayliao.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>优化下家里的网络</title>
+    <link href="http://www.rayliao.com/blog/2020/06/bb608ee0/"/>
+    <id>http://www.rayliao.com/blog/2020/06/bb608ee0/</id>
+    <published>2020-06-09T02:58:14.000Z</published>
+    <updated>2020-06-12T06:53:02.481Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用的宽带是移动的200m，房子是租的，三房一厅94平，一个TP-Link的路由器放在客厅，其实一直觉得在主卧网速很差，但没有过多去理会，以为是移动本身的问题。&lt;/p&gt;
+&lt;p&gt;上周网络差到不行，躺在床上没办法工作，就下定决定好好排查下是移动宽带的问题还是路由器问题。网上找了下，可以通过ping的方式看下发送包和丢包情况去判断下宽带的速度，还可以直接连一下移动的网关试一下如何。后来思考了下，也不用那么麻烦，直接用测速的在客厅分别连下路由器和移动的网关就行了。然后发现路由器和移动的网关速度都很可以啊。然后在几个房间分别测试了下，主卧速度差到不行，看来是Wi-Fi信号衰减的问题无疑了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://www.rayliao.com/blog/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webp是该用起来了</title>
+    <link href="http://www.rayliao.com/blog/2020/05/7b2b0798/"/>
+    <id>http://www.rayliao.com/blog/2020/05/7b2b0798/</id>
+    <published>2020-05-22T12:54:46.000Z</published>
+    <updated>2020-05-27T07:31:51.109Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;webp的好处不用多说了，相比jpg和png格式，文件大小能节省很多。但因为并不是所有浏览器都支持，所以需要做一些兼容处理。&lt;/p&gt;
+&lt;h3 id=&quot;得到webp&quot;&gt;&lt;a href=&quot;#得到webp&quot; class=&quot;headerlink&quot; title=&quot;得到webp&quot;&gt;&lt;/a&gt;得到webp&lt;/h3&gt;&lt;p&gt;随便搜索引擎一搜，会有很多在线转换图片格式的工具，也有很多可供下载的工具，看你自己怎么用了，比如说前端的&lt;code&gt;gulp&lt;/code&gt;，会有对应的图片压缩转换的插件可使用。这里我就说下google提供的的命令行工具&lt;code&gt;webp&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在Mac下可以使用homebrew安装webp工具：&lt;/p&gt;
+&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;brew install webp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;安装完成之后，就可以使用cwebp将jpg或png转成webp格式：&lt;/p&gt;
+&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cwebp [-preset &amp;lt;...&amp;gt;] [options] in_file [-o out_file]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;更多的操作自行查阅&lt;a href=&quot;https://developers.google.com/speed/webp/docs/using&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文档&lt;/a&gt;吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://www.rayliao.com/blog/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>杯葛微信行动</title>
+    <link href="http://www.rayliao.com/blog/2020/05/57cb9257/"/>
+    <id>http://www.rayliao.com/blog/2020/05/57cb9257/</id>
+    <published>2020-05-19T00:55:13.000Z</published>
+    <updated>2020-05-19T01:45:19.050Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h3&gt;&lt;p&gt;原因一，iOS有个屏幕使用时间的功能，几次查看都发现微信的使用时间远远高于其他，秉持着时间就是金钱的原则，浪费太多时间在微信上让自身体现得过于懒散；原因二，没有对比就没有伤害，自从深度使用TG之后，越来越看不起微信了，太多限制功能，什么功能都想做，吃成胖子，导致聊天那块的功能做得不够精，不够年轻，虽然我也能体谅你，毕竟你的使用人群以中老年人占多估计，但不代表我就喜欢你；原因三，之前要做一个解散群的处理，发现并没有相关功能提供，只能一个个踢除，之后删掉自己，这样就造成了误解，在未告知的情况下，别人会误解是你把TA踢了，而不是解散群。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://www.rayliao.com/blog/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在TypeScript项目使用ESLint和Prettier</title>
+    <link href="http://www.rayliao.com/blog/2020/05/ba9da8f7/"/>
+    <id>http://www.rayliao.com/blog/2020/05/ba9da8f7/</id>
+    <published>2020-05-06T06:41:05.000Z</published>
+    <updated>2020-05-19T01:08:33.256Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;翻译文章，&lt;a href=&quot;https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TypeScript语法规则和代码风格的检查工具，主要有两种，TSLint和ESLint。TSLint只能用于TypeScript的检查，ESLint同时支持JavaScript和TypeScript。&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;TypeScript 2019线路&lt;/a&gt;中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他们只会专注于ESLint。因此，我建议使用ESLint来整理TypeScript项目。&lt;/p&gt;
+&lt;h3 id=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;a href=&quot;#在TypeScript项目中设置ESLint&quot; class=&quot;headerlink&quot; title=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;/a&gt;在TypeScript项目中设置ESLint&lt;/h3&gt;&lt;p&gt;首先安装所有需要的依赖：&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;eslint&lt;/span&gt; @&lt;span class=&quot;keyword&quot;&gt;typescript&lt;/span&gt;-&lt;span class=&quot;keyword&quot;&gt;eslint&lt;/span&gt;/&lt;span class=&quot;keyword&quot;&gt;parser&lt;/span&gt; @typescript-eslint/eslint-plugin --dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果项目是使用create-react-app搭建，eslint已经通过react-scripts包含在依赖中，因此无需额外通过yarn去安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;eslint：ESLint的核心库&lt;/li&gt;
+&lt;li&gt;@typescript-eslint/parser：允许ESLint转换TypeScript代码的解析器&lt;/li&gt;
+&lt;li&gt;@typescript-eslint/eslint-plugin：包含一堆特定于TypeScript的ESLint规则的插件&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://www.rayliao.com/blog/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react前端项目部署到iis</title>
+    <link href="http://www.rayliao.com/blog/2020/05/c1176cea/"/>
+    <id>http://www.rayliao.com/blog/2020/05/c1176cea/</id>
+    <published>2020-05-04T02:52:34.000Z</published>
+    <updated>2020-05-06T06:37:59.473Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天开发用于微信公众号的页面，被微信网页授权，搞得烦死了。授权好多步骤，又跟之前的小程序的&lt;code&gt;openid&lt;/code&gt;有些冲突，换成&lt;code&gt;unionid&lt;/code&gt;，但也遇到一系列的坑。项目是&lt;code&gt;create react app&lt;/code&gt;搭建的，为了避免跨域问题，在&lt;code&gt;package.json&lt;/code&gt;配置了代理。对iis不熟悉，网上搜刮了很多资料，捣腾了很久。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://www.rayliao.com/blog/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+</feed>
