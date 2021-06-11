@@ -354,7 +354,7 @@
 &lt;p&gt;安装完成之后，就可以使用cwebp将jpg或png转成webp格式：&lt;/p&gt;
 &lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cwebp [-preset &amp;lt;...&amp;gt;] [options] in_file [-o out_file]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
-&lt;p&gt;更多的操作自行查阅&lt;a href=&quot;https://developers.google.com/speed/webp/docs/using&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文档&lt;/a&gt;吧。&lt;/p&gt;
+&lt;p&gt;更多的操作自行查阅&lt;a href=&quot;https://developers.google.com/speed/webp/docs/using&quot;&gt;文档&lt;/a&gt;吧。&lt;/p&gt;
     
     </summary>
     
@@ -391,12 +391,12 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;翻译文章，&lt;a href=&quot;https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;翻译文章，&lt;a href=&quot;https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;TypeScript语法规则和代码风格的检查工具，主要有两种，TSLint和ESLint。TSLint只能用于TypeScript的检查，ESLint同时支持JavaScript和TypeScript。&lt;/p&gt;
-&lt;p&gt;在&lt;a href=&quot;https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;TypeScript 2019线路&lt;/a&gt;中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他们只会专注于ESLint。因此，我建议使用ESLint来整理TypeScript项目。&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration&quot;&gt;TypeScript 2019线路&lt;/a&gt;中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他们只会专注于ESLint。因此，我建议使用ESLint来整理TypeScript项目。&lt;/p&gt;
 &lt;h3 id=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;a href=&quot;#在TypeScript项目中设置ESLint&quot; class=&quot;headerlink&quot; title=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;/a&gt;在TypeScript项目中设置ESLint&lt;/h3&gt;&lt;p&gt;首先安装所有需要的依赖：&lt;/p&gt;
-&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;eslint&lt;/span&gt; @&lt;span class=&quot;keyword&quot;&gt;typescript&lt;/span&gt;-&lt;span class=&quot;keyword&quot;&gt;eslint&lt;/span&gt;/&lt;span class=&quot;keyword&quot;&gt;parser&lt;/span&gt; @typescript-eslint/eslint-plugin --dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn &lt;span class=&quot;keyword&quot;&gt;add&lt;/span&gt; eslint &lt;span class=&quot;variable&quot;&gt;@typescript&lt;/span&gt;&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;/&lt;/span&gt;parser &lt;span class=&quot;variable&quot;&gt;@typescript&lt;/span&gt;&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;/&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;plugin &lt;span class=&quot;comment&quot;&gt;--dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;如果项目是使用create-react-app搭建，eslint已经通过react-scripts包含在依赖中，因此无需额外通过yarn去安装。&lt;/p&gt;

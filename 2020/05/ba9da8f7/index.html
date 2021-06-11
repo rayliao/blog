@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="翻译文章，原文地址  TypeScript语法规则和代码风格的检查工具，主要有两种，TSLint和ESLint。TSLint只能用于TypeScript的检查，ESLint同时支持JavaScript和TypeScript。 在TypeScript 2019线路中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在TypeScript项目使用ESLint和Prettier">
+<meta property="og:url" content="http://www.rayliao.com/blog/2020/05/ba9da8f7/index.html">
+<meta property="og:site_name" content="Ray&#39;s Blog">
+<meta property="og:description" content="翻译文章，原文地址  TypeScript语法规则和代码风格的检查工具，主要有两种，TSLint和ESLint。TSLint只能用于TypeScript的检查，ESLint同时支持JavaScript和TypeScript。 在TypeScript 2019线路中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-06T06:41:05.000Z">
+<meta property="article:modified_time" content="2020-05-19T01:08:33.256Z">
+<meta property="article:author" content="Ray">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/blog/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>在TypeScript项目使用ESLint和Prettier</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/blog/atom.xml" title="Ray&#39;s Blog" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives">Archive</a></li>
+         
+          <li><a href="http://www.rayliao.com/">Ray</a></li>
+         
+          <li><a href="/blog/atom.xml">Rss</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post " href="/blog/2020/05/57cb9257/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post " href="/blog/2020/05/c1176cea/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.rayliao.com/blog/2020/05/ba9da8f7/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&text=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&is_video=false&description=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在TypeScript项目使用ESLint和Prettier&body=Check out this article: http://www.rayliao.com/blog/2020/05/ba9da8f7/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&name=在TypeScript项目使用ESLint和Prettier&description=&lt;blockquote&gt;
+&lt;p&gt;翻译文章，&lt;a href=&quot;https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TypeScript语法规则和代码风格的检查工具，主要有两种，TSLint和ESLint。TSLint只能用于TypeScript的检查，ESLint同时支持JavaScript和TypeScript。&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration&quot;&gt;TypeScript 2019线路&lt;/a&gt;中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他们只会专注于ESLint。因此，我建议使用ESLint来整理TypeScript项目。&lt;/p&gt;
+&lt;h3 id=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;a href=&quot;#在TypeScript项目中设置ESLint&quot; class=&quot;headerlink&quot; title=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;/a&gt;在TypeScript项目中设置ESLint&lt;/h3&gt;&lt;p&gt;首先安装所有需要的依赖：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn &lt;span class=&quot;keyword&quot;&gt;add&lt;/span&gt; eslint &lt;span class=&quot;variable&quot;&gt;@typescript&lt;/span&gt;&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;/&lt;/span&gt;parser &lt;span class=&quot;variable&quot;&gt;@typescript&lt;/span&gt;&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;/&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;plugin &lt;span class=&quot;comment&quot;&gt;--dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果项目是使用create-react-app搭建，eslint已经通过react-scripts包含在依赖中，因此无需额外通过yarn去安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;eslint：ESLint的核心库&lt;/li&gt;
+&lt;li&gt;@typescript-eslint/parser：允许ESLint转换TypeScript代码的解析器&lt;/li&gt;
+&lt;li&gt;@typescript-eslint/eslint-plugin：包含一堆特定于TypeScript的ESLint规则的插件&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://www.rayliao.com/blog/2020/05/ba9da8f7/&t=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8TypeScript%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%AE%BE%E7%BD%AEESLint"><span class="toc-number">1.</span> <span class="toc-text">在TypeScript项目中设置ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5Prettier%E5%AE%8C%E7%BE%8E%E5%A5%91%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">加入Prettier完美契合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8VS-Code%E4%B8%AD%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%A4%8D%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">在VS Code中自动修复代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%90%E8%A1%8CESLint"><span class="toc-number">4.</span> <span class="toc-text">用命令行运行ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2%E6%9C%89ESLint%E9%94%99%E8%AF%AF%E7%9A%84%E4%BB%A3%E7%A0%81%E8%A2%AB%E6%8F%90%E4%BA%A4"><span class="toc-number">5.</span> <span class="toc-text">阻止有ESLint错误的代码被提交</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在TypeScript项目使用ESLint和Prettier
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Ray</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-05-06T06:41:05.000Z" itemprop="datePublished">2020-05-06</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/blog/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>翻译文章，<a target="_blank" rel="noopener" href="https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project">原文地址</a></p>
+</blockquote>
+<p>TypeScript语法规则和代码风格的检查工具，主要有两种，TSLint和ESLint。TSLint只能用于TypeScript的检查，ESLint同时支持JavaScript和TypeScript。</p>
+<p>在<a target="_blank" rel="noopener" href="https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration">TypeScript 2019线路</a>中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他们只会专注于ESLint。因此，我建议使用ESLint来整理TypeScript项目。</p>
+<h3 id="在TypeScript项目中设置ESLint"><a href="#在TypeScript项目中设置ESLint" class="headerlink" title="在TypeScript项目中设置ESLint"></a>在TypeScript项目中设置ESLint</h3><p>首先安装所有需要的依赖：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn <span class="keyword">add</span> eslint <span class="variable">@typescript</span><span class="operator">-</span>eslint<span class="operator">/</span>parser <span class="variable">@typescript</span><span class="operator">-</span>eslint<span class="operator">/</span>eslint<span class="operator">-</span>plugin <span class="comment">--dev</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果项目是使用create-react-app搭建，eslint已经通过react-scripts包含在依赖中，因此无需额外通过yarn去安装。</p>
+</blockquote>
+<ul>
+<li>eslint：ESLint的核心库</li>
+<li>@typescript-eslint/parser：允许ESLint转换TypeScript代码的解析器</li>
+<li>@typescript-eslint/eslint-plugin：包含一堆特定于TypeScript的ESLint规则的插件</li>
+</ul>
+<span id="more"></span>
+
+<p>接下来，在项目根目录创建一个配置文件：<code>.eslintrc.js</code>，以下是示例配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">parser</span>: <span class="string">&quot;@typescript-eslint/parser&quot;</span>, <span class="comment">// Specifies the ESLint parser</span></span><br><span class="line">  <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">    <span class="attr">ecmaVersion</span>: <span class="number">2020</span>, <span class="comment">// Allows for the parsing of modern ECMAScript features</span></span><br><span class="line">    <span class="attr">sourceType</span>: <span class="string">&quot;module&quot;</span> <span class="comment">// Allows for the use of imports</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">extends</span>: [</span><br><span class="line">    <span class="string">&quot;plugin:@typescript-eslint/recommended&quot;</span> <span class="comment">// Uses the recommended rules from the @typescript-eslint/eslint-plugin</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="comment">// Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs</span></span><br><span class="line">    <span class="comment">// e.g. &quot;@typescript-eslint/explicit-function-return-type&quot;: &quot;off&quot;,</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建议使用js文件替换json文件，因为js文件支持写上注释，能更好的描述规则。</p>
+</blockquote>
+<p>如果项目使用react，需要安装依赖<code>eslint-plugin-react</code>，上面的配置要改为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">parser</span>: <span class="string">&quot;@typescript-eslint/parser&quot;</span>, <span class="comment">// Specifies the ESLint parser</span></span><br><span class="line">  <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">    <span class="attr">ecmaVersion</span>: <span class="number">2020</span>, <span class="comment">// Allows for the parsing of modern ECMAScript features</span></span><br><span class="line">    <span class="attr">sourceType</span>: <span class="string">&quot;module&quot;</span>, <span class="comment">// Allows for the use of imports</span></span><br><span class="line">    <span class="attr">ecmaFeatures</span>: &#123;</span><br><span class="line">      <span class="attr">jsx</span>: <span class="literal">true</span> <span class="comment">// Allows for the parsing of JSX</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">settings</span>: &#123;</span><br><span class="line">    <span class="attr">react</span>: &#123;</span><br><span class="line">      <span class="attr">version</span>: <span class="string">&quot;detect&quot;</span> <span class="comment">// Tells eslint-plugin-react to automatically detect the version of React to use</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">extends</span>: [</span><br><span class="line">    <span class="string">&quot;plugin:react/recommended&quot;</span>, <span class="comment">// Uses the recommended rules from @eslint-plugin-react</span></span><br><span class="line">    <span class="string">&quot;plugin:@typescript-eslint/recommended&quot;</span> <span class="comment">// Uses the recommended rules from @typescript-eslint/eslint-plugin</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="comment">// Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs</span></span><br><span class="line">    <span class="comment">// e.g. &quot;@typescript-eslint/explicit-function-return-type&quot;: &quot;off&quot;,</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>最终，在你的配置文件中，你自行决定你要导入什么规则，以及你要使用哪些规则。</p>
+<h3 id="加入Prettier完美契合"><a href="#加入Prettier完美契合" class="headerlink" title="加入Prettier完美契合"></a>加入Prettier完美契合</h3><p>Prettier能很好的格式化你的代码，跟ESLint完美契合使用，安装依赖：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn <span class="built_in">add</span> prettier eslint-config-prettier eslint-plugin-prettier <span class="comment">--dev</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>prettier: prettier核心库</li>
+<li>eslint-config-prettier: 禁用可能会跟Prettier冲突的ESLint规则</li>
+<li>eslint-plugin-prettier: 把Prettier作为ESLint的规则使用</li>
+</ul>
+<p>在根目录创建配置文件<code>.prettierrc.js</code>，用来配置prettier，以下是配置示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">semi</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">trailingComma</span>: <span class="string">&quot;all&quot;</span>,</span><br><span class="line">  <span class="attr">singleQuote</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">printWidth</span>: <span class="number">120</span>,</span><br><span class="line">  <span class="attr">tabWidth</span>: <span class="number">4</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>然后<code>.eslintrc.js</code>中的extends数组需要加上两行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;prettier/@typescript-eslint&quot;</span>, <span class="comment">// Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier</span></span><br><span class="line"><span class="string">&quot;plugin:prettier/recommended&quot;</span> <span class="comment">// Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>确保<code>plugin:prettier/recommended</code>放在extends数组的最后。</p>
+</blockquote>
+<p>使用eslint-plugin-prettier，把prettier作为eslint规则使用的好处是，代码可以使用ESLint的<code>--fix</code>选项自动修复。</p>
+<h3 id="在VS-Code中自动修复代码"><a href="#在VS-Code中自动修复代码" class="headerlink" title="在VS Code中自动修复代码"></a>在VS Code中自动修复代码</h3><p>当一个文件被保存的时候，你的编辑器会自动运行ESLint的自动修复命令<code>eslint --fix</code>，是一个良好的开发体验。VS Code可以在<code>settings.json</code>文件配置保存自动修复的功能：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;editor.codeActionsOnSave&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;source.fixAll.eslint&quot;</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用命令行运行ESLint"><a href="#用命令行运行ESLint" class="headerlink" title="用命令行运行ESLint"></a>用命令行运行ESLint</h3><p>可以在<code>package.json</code>中添加运行ESLint的命令：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;lint&quot;</span>: <span class="string">&quot;eslint &#x27;*/**/*.&#123;js,ts,tsx&#125;&#x27; --quiet --fix&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以使用npm run lint或yarn lint从命令行运行以上脚本。此命令在所有的.js，.ts和.tsx（使用react）文件上运行ESLint检查。可以自动修复的都会直接自动修复，有些无法修复的，会在命令行中显示出来。</p>
+<h3 id="阻止有ESLint错误的代码被提交"><a href="#阻止有ESLint错误的代码被提交" class="headerlink" title="阻止有ESLint错误的代码被提交"></a>阻止有ESLint错误的代码被提交</h3><p>为了确认所有提交到git上的代码都没有错误，可以使用lint-staged工具，配合husky食用，可以在git的commit之前检查代码的正确性，如果存在错误，则无法提交，在<code>package.json</code>配置如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;husky&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;hooks&quot;</span>: &#123;</span><br><span class="line">          <span class="attr">&quot;pre-commit&quot;</span>: <span class="string">&quot;lint-staged&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;lint-staged&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;*.&#123;js,ts,tsx&#125;&quot;</span>: [</span><br><span class="line">          <span class="string">&quot;eslint --fix&quot;</span></span><br><span class="line">      ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>大概就是这样，写文档好累鸭，我还只是看着原文翻译过来而已了。</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives">Archive</a></li>
+         
+          <li><a href="http://www.rayliao.com/">Ray</a></li>
+         
+          <li><a href="/blog/atom.xml">Rss</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8TypeScript%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%AE%BE%E7%BD%AEESLint"><span class="toc-number">1.</span> <span class="toc-text">在TypeScript项目中设置ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5Prettier%E5%AE%8C%E7%BE%8E%E5%A5%91%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">加入Prettier完美契合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8VS-Code%E4%B8%AD%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%A4%8D%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">在VS Code中自动修复代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%90%E8%A1%8CESLint"><span class="toc-number">4.</span> <span class="toc-text">用命令行运行ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2%E6%9C%89ESLint%E9%94%99%E8%AF%AF%E7%9A%84%E4%BB%A3%E7%A0%81%E8%A2%AB%E6%8F%90%E4%BA%A4"><span class="toc-number">5.</span> <span class="toc-text">阻止有ESLint错误的代码被提交</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://www.rayliao.com/blog/2020/05/ba9da8f7/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&text=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&is_video=false&description=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在TypeScript项目使用ESLint和Prettier&body=Check out this article: http://www.rayliao.com/blog/2020/05/ba9da8f7/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&title=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://www.rayliao.com/blog/2020/05/ba9da8f7/&name=在TypeScript项目使用ESLint和Prettier&description=&lt;blockquote&gt;
+&lt;p&gt;翻译文章，&lt;a href=&quot;https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TypeScript语法规则和代码风格的检查工具，主要有两种，TSLint和ESLint。TSLint只能用于TypeScript的检查，ESLint同时支持JavaScript和TypeScript。&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;https://github.com/Microsoft/TypeScript/issues/29288#developer-productivity-tools-and-integration&quot;&gt;TypeScript 2019线路&lt;/a&gt;中，TypeScript核心团队解释说ESLint具有比TSLint更高性能的体系结构，并且在为TypeScript提供编辑器整合时，他们只会专注于ESLint。因此，我建议使用ESLint来整理TypeScript项目。&lt;/p&gt;
+&lt;h3 id=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;a href=&quot;#在TypeScript项目中设置ESLint&quot; class=&quot;headerlink&quot; title=&quot;在TypeScript项目中设置ESLint&quot;&gt;&lt;/a&gt;在TypeScript项目中设置ESLint&lt;/h3&gt;&lt;p&gt;首先安装所有需要的依赖：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn &lt;span class=&quot;keyword&quot;&gt;add&lt;/span&gt; eslint &lt;span class=&quot;variable&quot;&gt;@typescript&lt;/span&gt;&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;/&lt;/span&gt;parser &lt;span class=&quot;variable&quot;&gt;@typescript&lt;/span&gt;&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;/&lt;/span&gt;eslint&lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt;plugin &lt;span class=&quot;comment&quot;&gt;--dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果项目是使用create-react-app搭建，eslint已经通过react-scripts包含在依赖中，因此无需额外通过yarn去安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;eslint：ESLint的核心库&lt;/li&gt;
+&lt;li&gt;@typescript-eslint/parser：允许ESLint转换TypeScript代码的解析器&lt;/li&gt;
+&lt;li&gt;@typescript-eslint/eslint-plugin：包含一堆特定于TypeScript的ESLint规则的插件&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://www.rayliao.com/blog/2020/05/ba9da8f7/&t=在TypeScript项目使用ESLint和Prettier"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    Ray
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives">Archive</a></li>
+         
+          <li><a href="http://www.rayliao.com/">Ray</a></li>
+         
+          <li><a href="/blog/atom.xml">Rss</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/blog/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/blog/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+ 
+  
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+   
+    
+<script src="/blog/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/blog/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
