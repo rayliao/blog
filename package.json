@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "3.8.0"
+    "version": "5.4.0"
   },
   "scripts": {
     "start": "hexo server",
@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "hexo": "^3.8.0",
+    "hexo": "^5.4.0",
     "hexo-abbrlink": "^2.0.5",
     "hexo-browsersync": "^0.2.0",
     "hexo-deployer-git": "^1.0.0",
