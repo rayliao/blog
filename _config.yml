@@ -14,12 +14,11 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.rayliao.com/blog
 root: /blog/
-permalink: :year/:month/:abbrlink/
+permalink: :year/:title/
 permalink_defaults:
-# abbrlink config
-abbrlink:
-  alg: crc32 #support crc16(default) and crc32
-  rep: hex #support dec(default) and hex
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -32,7 +31,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :year-:month-:day-:title.md # File name of new posts
+new_post_name: :year-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link.enable: true

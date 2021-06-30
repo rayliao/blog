@@ -3,7 +3,6 @@ title: 创建新文章
 tags:
   - 技术
   - Hexo
-abbrlink: 975
 date: 2016-01-16 15:19:21
 ---
 

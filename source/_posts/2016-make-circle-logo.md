@@ -3,7 +3,6 @@ title: 绘制一个圆环logo
 tags:
   - Design
   - Photoshop
-abbrlink: 13903
 date: 2016-01-25 23:30:27
 ---
 

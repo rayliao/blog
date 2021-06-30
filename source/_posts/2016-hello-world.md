@@ -3,7 +3,6 @@ title: Hello World
 tags:
   - 技术
   - Hexo
-abbrlink: 16107
 date: 2016-01-10 15:19:21
 ---
 
